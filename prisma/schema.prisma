@@ -1,0 +1,33 @@
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Workout {
+  id              Int      @id @default(autoincrement())
+  exercise_type   String
+  duration        Int // Duration in minutes
+  calories_burned Int
+  workout_date    DateTime @default(now())
+  intensity       String
+}
+
+model Goal {
+  id               Int      @id @default(autoincrement())
+  goal_type        String // e.g., weight loss, exercise time, calories burned
+  target_value     Float
+  start_date       DateTime @default(now())
+  target_date      DateTime
+  current_progress Float
+}
+
+model Progress {
+  id                Int      @id @default(autoincrement())
+  weight            Float // Weight in kg
+  body_measurements String // Can be a JSON string or CSV to store multiple measurements
+  progress_date     DateTime @default(now())
+}
