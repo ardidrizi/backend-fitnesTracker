@@ -1,4 +1,5 @@
 import express from "express";
+import logger from "morgan";
 import workoutRotes from "./routes/workoutsRoutes";
 // import goalRoutes from './routes/goalRoutes';
 // import progresRoutes from './routes/progresRoutes';
