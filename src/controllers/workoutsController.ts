@@ -1,16 +1,7 @@
 import { Request, Response } from "express";
 import prisma from "../config/prisma";
 
-interface Workout {
-  exercise_type: string;
-  duration: number;
-  calories_burned: number;
-  intensity: string;
-}
-
-interface CreateWorkoutRequest extends Request {
-  body: Workout;
-}
+import { CreateWorkoutRequest, Workout } from "../../global";
 
 export const createWorkout = async (
   req: CreateWorkoutRequest,
