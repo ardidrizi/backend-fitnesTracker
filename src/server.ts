@@ -1,8 +1,8 @@
 import express from "express";
 import logger from "morgan";
 import workoutRotes from "./routes/workoutsRoutes";
-// import goalRoutes from './routes/goalRoutes';
-// import progresRoutes from './routes/progresRoutes';
+import userRoutes from "./routes/userRoutes";
+
 import dotenv from "dotenv";
 
 // Load environment variables
@@ -16,9 +16,8 @@ app.use(express.json());
 app.use(logger("dev"));
 
 // Routes
+app.use("/api/users", userRoutes);
 app.use("/api/workouts", workoutRotes);
-// app.use('/api/goals', goalRoutes);
-// app.use('/api/progres', progresRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
